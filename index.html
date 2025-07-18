@@ -1,133 +1,159 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>My Notes</title>
-<style>
-/* General Styles */
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  background-color: #f8f8f8;
-  color: #333;
-}
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Notes V2.2</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f0f2f5;
+      color: #333;
+    }
 
-.container {
-  max-width: 800px;
-  margin: 20px auto;
-  padding: 20px;
-  background-color: #fff;
-  border: 2px solid #ccc;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
+    .container {
+      max-width: 900px;
+      margin: 30px auto;
+      padding: 30px;
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    }
 
-.header {
-  text-align: center;
-  margin-bottom: 20px;
-}
+    .header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
 
-.title {
-  font-size: 32px;
-  color: #333;
-  margin-bottom: 10px;
-}
+    .title {
+      font-size: 2.5rem;
+      font-weight: 600;
+      color: #222;
+    }
 
-.notes-container {
-  min-height: 200px;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  background-color: #f3f3f3;
-  overflow: auto;
-}
+    .notes-container {
+      min-height: 200px;
+      max-height: 300px;
+      overflow-y: auto;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      padding: 15px;
+      background-color: #f9f9f9;
+      margin-bottom: 15px;
+    }
 
-.note {
-  margin-bottom: 10px;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  background-color: #fff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease-in-out;
-}
+    .note {
+      background-color: #fff;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      padding: 12px;
+      margin-bottom: 10px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+      transition: transform 0.2s ease;
+    }
 
-.note:hover {
-  transform: translateY(-3px);
-}
+    .note:hover {
+      transform: translateY(-3px);
+    }
 
-textarea {
-  width: 100%;
-  height: 150px;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  font-size: 16px;
-  resize: vertical;
-}
+    textarea {
+      width: 100%;
+      height: 120px;
+      padding: 12px;
+      font-size: 16px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      resize: vertical;
+    }
 
-.button {
-  display: inline-block;
-  padding: 10px 20px;
-  margin-top: 10px;
-  background-color: #4CAF50;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 16px;
-  transition: background-color 0.3s ease;
-}
+    .button {
+      padding: 10px 20px;
+      font-size: 16px;
+      margin-right: 10px;
+      margin-top: 10px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: 0.3s ease;
+    }
 
-.button:hover {
-  background-color: #45a049;
-}
+    .button.add {
+      background-color: #22c55e;
+      color: white;
+    }
 
-.download-button {
-  background-color: #008CBA;
-}
+    .button.add:hover {
+      background-color: #16a34a;
+    }
 
-.download-button:hover {
-  background-color: #005f75;
-}
+    .button.download {
+      background-color: #3b82f6;
+      color: white;
+    }
 
-.calculator-container {
-  margin-top: 20px;
-}
+    .button.download:hover {
+      background-color: #1d4ed8;
+    }
 
-.calculator {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 5px;
-  background-color: #f8f8f8;
-  padding: 10px;
-  border-radius: 5px;
-}
+    .calculator-container {
+      margin-top: 40px;
+    }
 
-.calculator button {
-  padding: 15px;
-  border: none;
-  border-radius: 5px;
-  background-color: #fff;
-  font-size: 20px;
-  cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.2s ease;
-}
+    .calculator-container h2 {
+      margin-bottom: 10px;
+      font-size: 1.5rem;
+    }
 
-.calculator button:hover {
-  background-color: #e0e0e0;
-  transform: translateY(-3px);
-}
+    .calculator {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8px;
+      margin-bottom: 10px;
+    }
 
-.footer {
-  text-align: center;
-  margin-top: 20px;
-  font-size: 14px;
-  color: #888;
-}
-</style>
+    .calculator button {
+      padding: 15px;
+      font-size: 18px;
+      background-color: #fff;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: 0.2s ease;
+    }
+
+    .calculator button:hover {
+      background-color: #e5e7eb;
+      transform: translateY(-2px);
+    }
+
+    #calcInput {
+      width: 100%;
+      padding: 12px;
+      font-size: 18px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      background-color: #f9f9f9;
+    }
+
+    .footer {
+      text-align: center;
+      margin-top: 40px;
+      color: #666;
+      font-size: 14px;
+    }
+
+    .footer a {
+      color: #3b82f6;
+      text-decoration: none;
+    }
+
+    .footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
 </head>
 <body>
 
@@ -135,15 +161,15 @@ textarea {
   <div class="header">
     <h1 class="title">My Notes V2.2</h1>
   </div>
+
   <div class="notes-container" id="notes-container">
-    <!-- Notes will be displayed here -->
+    <!-- Notes will appear here -->
   </div>
+
   <textarea id="newNote" placeholder="Write your note here..."></textarea>
-  <button class="button" onclick="addNote()">Add Note</button>
-  <button class="button download-button" onclick="downloadNote()">Download Note</button>
-  <div class="footer">
-    <p>&copy; 2024 My Notes - All rights reserved | <a href="https://taezeem14.github.io/About_Me.io" target="_blank">About Me</a></p>
-  </div>
+  <br />
+  <button class="button add" onclick="addNote()">Add Note</button>
+  <button class="button download" onclick="downloadNote()">Download Note</button>
 
   <div class="calculator-container">
     <h2>Calculator</h2>
@@ -165,54 +191,59 @@ textarea {
       <button onclick="calculate()">=</button>
       <button onclick="appendToCalculator('/')">/</button>
     </div>
-    <input type="text" id="calcInput" readonly>
+    <input type="text" id="calcInput" readonly />
+  </div>
+
+  <div class="footer">
+    &copy; 2024 My Notes - All rights reserved | 
+    <a href="https://taezeem14.github.io/About_Me" target="_blank">About Me</a>
   </div>
 </div>
 
 <script>
-var calcInput = document.getElementById("calcInput");
+  var calcInput = document.getElementById("calcInput");
 
-function appendToCalculator(value) {
-  calcInput.value += value;
-}
-
-function clearCalculator() {
-  calcInput.value = "";
-}
-
-function calculate() {
-  try {
-    calcInput.value = eval(calcInput.value);
-  } catch (error) {
-    calcInput.value = "Error";
+  function appendToCalculator(value) {
+    calcInput.value += value;
   }
-}
 
-function addNote() {
-  var noteText = document.getElementById("newNote").value;
-  if (noteText.trim() !== "") {
-    var noteElement = document.createElement("div");
-    noteElement.classList.add("note");
-    noteElement.textContent = noteText;
-    document.getElementById("notes-container").appendChild(noteElement);
-    document.getElementById("newNote").value = "";
+  function clearCalculator() {
+    calcInput.value = "";
   }
-}
 
-function downloadNote() {
-  var noteText = document.getElementById("newNote").value;
-  if (noteText.trim() !== "") {
-    var blob = new Blob([noteText], { type: "text/plain" });
-    var url = URL.createObjectURL(blob);
-    var a = document.createElement("a");
-    a.href = url;
-    a.download = "my_note.txt";
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-    URL.revokeObjectURL(url);
+  function calculate() {
+    try {
+      calcInput.value = eval(calcInput.value);
+    } catch {
+      calcInput.value = "Error";
+    }
   }
-}
+
+  function addNote() {
+    var noteText = document.getElementById("newNote").value;
+    if (noteText.trim() !== "") {
+      var noteElement = document.createElement("div");
+      noteElement.className = "note";
+      noteElement.textContent = noteText;
+      document.getElementById("notes-container").appendChild(noteElement);
+      document.getElementById("newNote").value = "";
+    }
+  }
+
+  function downloadNote() {
+    var noteText = document.getElementById("newNote").value;
+    if (noteText.trim() !== "") {
+      var blob = new Blob([noteText], { type: "text/plain" });
+      var url = URL.createObjectURL(blob);
+      var a = document.createElement("a");
+      a.href = url;
+      a.download = "my_note.txt";
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+    }
+  }
 </script>
 
 </body>
